@@ -16,8 +16,8 @@ testProject.mpr.lock
 /.mendix-cache/
 /.classpath
 /.project
-/app5.mpr.bak
-/app5.mpr.lock
+/*.bak
+/*.mpr.lock
 /modeler-merge-marker
 /project-settings.user.json
 /javasource/*/proxies/
