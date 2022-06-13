@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <ant antfile="c:\Users\eg\Documents\GitHub\mendix-demo-easyexcel/build.xml">
+    <target name="exportModulePackage"/>
+  </ant>
+</target>
+</project>
