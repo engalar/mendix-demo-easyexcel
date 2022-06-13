@@ -15,7 +15,7 @@ jobs:
   build-in-container:
     runs-on: ubuntu-latest
     container:
-      image: node:14.16
+      image: ghcr.io/engalar/mxbuild:latest
       volumes:
         - ${GITHUB_WORKSPACE}:/project
       options: --cpus 3
