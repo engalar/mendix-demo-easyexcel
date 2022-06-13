@@ -1,8 +1,8 @@
 FROM mendix/rootfs:bionic
 
 RUN mkdir -p /opt/mendix &&\
-  cd /opt/mendix &&\\
-  wget ttps://cdn.mendix.com/runtime/mxbuild-9.12.2.44241.tar.gz &&\
+  cd /opt/mendix &&\
+  wget https://cdn.mendix.com/runtime/mxbuild-9.12.2.44241.tar.gz &&\
   tar -xzf mxbuild-9.12.2.44241.tar.gz &&\
   wget https://cdn.mendix.com/mx-buildpack/mono/mono-5.20.1.27-mx-ubuntu-bionic.tar.gz &&\
   tar -xzf mono-5.20.1.27-mx-ubuntu-bionic.tar.gz &&\
