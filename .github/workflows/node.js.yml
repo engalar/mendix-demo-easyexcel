@@ -20,7 +20,7 @@ jobs:
       options: --cpus 2
 
     steps:
-    - run: /opt/mendix/mono/bin/mono --config /opt/mendix/mono/etc/mono/config modeler/mxbuild.exe --target=package --output=/tmp/model.mda --java-home=/opt/mendix/jdk-11.0.10+9 --java-exe-path=/opt/mendix/jdk-11.0.10+9/bin/java Easyexcel.mpr
+    - run: /opt/mendix/mono/bin/mono --config /opt/mendix/mono/etc/mono/config /opt/mendix/modeler/mxbuild.exe --target=package --output=/tmp/model.mda --java-home=/opt/mendix/jdk-11.0.10+9 --java-exe-path=/opt/mendix/jdk-11.0.10+9/bin/java Easyexcel.mpr
     - name: mendix mda file
       uses: actions/upload-artifact@v3
       with:
