@@ -14,5 +14,4 @@ WORKDIR /opt/mendix
 ENTRYPOINT [ "./mono/bin/mono", "--config", "./mono/etc/mono/config", "modeler/mxbuild.exe", "--target=package", "--output=/tmp/model.mda", "--java-home=jdk-11.0.10+9", "--java-exe-path=jdk-11.0.10+9/bin/java"]
 
 
-
 CMD [ "/project/Easyexcel.mpr" ]
