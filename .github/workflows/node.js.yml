@@ -5,25 +5,21 @@ name: mendix build mda
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
   build-in-container:
-    needs: checkout
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/engalar/mxbuild:latest
       options: --cpus 2
 
     steps:
-    - run: ls -al
-    - run: /opt/mendix/mono/bin/mono --config /opt/mendix/mono/etc/mono/config /opt/mendix/modeler/mxbuild.exe --target=package --output=/tmp/model.mda --java-home=/opt/mendix/jdk-11.0.10+9 --java-exe-path=/opt/mendix/jdk-11.0.10+9/bin/java Easyexcel.mpr
-    - name: mendix mda file
-      uses: actions/upload-artifact@v3
-      with:
-        name: model.mda
-        path: /tmp/model.mda
+      - uses: actions/checkout@v3
+      - run: ls -al
+      - run: /opt/mendix/mono/bin/mono --config /opt/mendix/mono/etc/mono/config /opt/mendix/modeler/mxbuild.exe --target=package --output=/tmp/model.mda --java-home=/opt/mendix/jdk-11.0.10+9 --java-exe-path=/opt/mendix/jdk-11.0.10+9/bin/java Easyexcel.mpr
+      - name: mendix mda file
+        uses: actions/upload-artifact@v3
+        with:
+          name: model.mda
+          path: /tmp/model.mda
