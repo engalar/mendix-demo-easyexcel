@@ -1,0 +1,29 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: mendix build mda
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+  build-in-container:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.16
+      volumes:
+        - ${GITHUB_WORKSPACE}:/project
+      options: --cpus 3
+
+    steps:
+    - run: ./mono/bin/mono --config ./mono/etc/mono/config modeler/mxbuild.exe --target=package --output=/tmp/model.mda --java-home=jdk-11.0.10+9 --java-exe-path=jdk-11.0.10+9/bin/java /project/Easyexcel.mpr
+    - name: mendix mda file
+      uses: actions/upload-artifact@v3
+      with:
+        name: model.mda
+        path: /tmp/model.mda
