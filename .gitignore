@@ -25,3 +25,4 @@ testProject.mpr.lock
 /**/node_modules/
 !/javascriptsource/**/node_modules/
 /nativemobile/builds/
+target

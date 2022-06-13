@@ -50,16 +50,5 @@
 				"isDefault": true
 			}
 		},
-		{
-			"type": "npm",
-			"script": "build",
-			"problemMatcher": [],
-			"label": "npm: build",
-			"detail": "pluggable-widgets-tools build:web",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		}
 	]
 }
